@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Management — BusinessHandler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+
+    <aside class="side-nav" data-od-id="side-nav">
+      <div class="brand">Business<span class="brand-accent">Handler</span></div>
+      <a class="nav-item" href="dashboard.html" data-od-id="nav-dashboard">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="food-management.html" data-od-id="nav-food">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        Speisen
+      </a>
+      <a class="nav-item active" href="time-management.html" data-od-id="nav-time">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Zeiten
+      </a>
+    </aside>
+
+    <div class="main">
+      <main class="content" data-od-id="time-main">
+
+        <header class="page-header" data-od-id="time-header">
+          <h1 class="page-title">Time Management</h1>
+          <p class="page-subtitle">Schichtplan und Anwesenheit — Montag, 28. September</p>
+        </header>
+
+        <section class="section" data-od-id="time-kpis">
+          <div class="kpi-grid">
+            <article class="card kpi" data-od-id="kpi-hours">
+              <div class="kpi-head"><span class="kpi-label">Geplante Stunden heute</span></div>
+              <p class="kpi-value">96 h</p>
+            </article>
+            <article class="card kpi" data-od-id="kpi-overtime">
+              <div class="kpi-head"><span class="kpi-label">Überstunden (Woche)</span></div>
+              <p class="kpi-value">12 h</p>
+            </article>
+            <article class="card kpi" data-od-id="kpi-on-duty">
+              <div class="kpi-head"><span class="kpi-label">Im Dienst</span></div>
+              <p class="kpi-value">9</p>
+            </article>
+            <article class="card kpi" data-od-id="kpi-open">
+              <div class="kpi-head"><span class="kpi-label">Offene Schichten</span></div>
+              <p class="kpi-value">3</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" data-od-id="time-shifts">
+          <h2 class="section-title">Schichtplan heute</h2>
+          <div class="list" id="shift-list">
+            <div class="list-row" data-od-id="shift-anna">
+              <div class="list-info">
+                <p class="list-title">Anna Weber</p>
+                <p class="list-subtitle">Service · 10:00 – 18:00</p>
+              </div>
+              <span class="badge badge-success" data-od-id="badge-anna">Im Dienst</span>
+              <button class="toggle" role="switch" aria-checked="true" aria-label="Anwesenheit Anna Weber" data-od-id="toggle-anna"></button>
+            </div>
+            <div class="list-row" data-od-id="shift-lukas">
+              <div class="list-info">
+                <p class="list-title">Lukas Meyer</p>
+                <p class="list-subtitle">Küche · 11:00 – 19:00</p>
+              </div>
+              <span class="badge badge-success" data-od-id="badge-lukas">Im Dienst</span>
+              <button class="toggle" role="switch" aria-checked="true" aria-label="Anwesenheit Lukas Meyer" data-od-id="toggle-lukas"></button>
+            </div>
+            <div class="list-row" data-od-id="shift-sofia">
+              <div class="list-info">
+                <p class="list-title">Sofia Rossi</p>
+                <p class="list-subtitle">Service · 09:00 – 15:00</p>
+              </div>
+              <span class="badge badge-warning" data-od-id="badge-sofia">Pause</span>
+              <button class="toggle" role="switch" aria-checked="true" aria-label="Anwesenheit Sofia Rossi" data-od-id="toggle-sofia"></button>
+            </div>
+            <div class="list-row" data-od-id="shift-ben">
+              <div class="list-info">
+                <p class="list-title">Ben Fischer</p>
+                <p class="list-subtitle">Küche · 17:00 – 23:00</p>
+              </div>
+              <span class="badge badge-neutral" data-od-id="badge-ben">Nicht anwesend</span>
+              <button class="toggle" role="switch" aria-checked="false" aria-label="Anwesenheit Ben Fischer" data-od-id="toggle-ben"></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" data-od-id="time-open-shifts">
+          <h2 class="section-title">Offene Schichten</h2>
+          <div class="list">
+            <div class="list-row" data-od-id="open-1">
+              <div class="list-info">
+                <p class="list-title">Service</p>
+                <p class="list-subtitle">Donnerstag · 18:00 – 22:00</p>
+              </div>
+              <button class="btn btn-ghost" data-od-id="open-1-take">Übernehmen</button>
+            </div>
+            <div class="list-row" data-od-id="open-2">
+              <div class="list-info">
+                <p class="list-title">Küche</p>
+                <p class="list-subtitle">Freitag · 11:00 – 19:00</p>
+              </div>
+              <button class="btn btn-ghost" data-od-id="open-2-take">Übernehmen</button>
+            </div>
+            <div class="list-row" data-od-id="open-3">
+              <div class="list-info">
+                <p class="list-title">Service</p>
+                <p class="list-subtitle">Samstag · 09:00 – 15:00</p>
+              </div>
+              <button class="btn btn-ghost" data-od-id="open-3-take">Übernehmen</button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="bottom-nav" data-od-id="bottom-nav">
+      <a class="nav-item" href="dashboard.html" data-od-id="mnav-dashboard">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="food-management.html" data-od-id="mnav-food">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        Speisen
+      </a>
+      <a class="nav-item active" href="time-management.html" data-od-id="mnav-time">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Zeiten
+      </a>
+    </nav>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var checked = toggle.getAttribute('aria-checked') === 'true';
+        toggle.setAttribute('aria-checked', checked ? 'false' : 'true');
+      });
+    });
+  </script>
+</body>
+</html>
