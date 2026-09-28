@@ -1,2 +1,76 @@
-/* dashboard.css — seitenbezogene Styles der Dashboard-Seite.
-   Kernkennzahlen und Karten werden von Ticket #1 ergänzt. */
+/* =====================================================================
+   dashboard.css — seitenbezogene Styles der Dashboard-Seite.
+   Kernkennzahlen (KPI-Karten) werden von js/dashboard.js gerendert.
+   Verwendet ausschließlich Design-Tokens aus css/base.css.
+   ===================================================================== */
+
+/* KPI-Raster: 1 Spalte mobil, 2 Spalten >=768px, 4 Spalten >=1024px. */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .kpi-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* KPI-Karte (Card-Spezifikation aus DESIGN.md). */
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-3);
+  box-shadow: 0 1px 3px rgba(35, 35, 60, 0.08);
+}
+
+.kpi-value {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.kpi-label {
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-body);
+  color: var(--color-muted);
+}
+
+.kpi-delta {
+  align-self: flex-start;
+  border-radius: var(--radius-pill);
+  padding: var(--space-0) var(--space-1);
+  font-family: var(--font-family);
+  font-size: var(--font-size-11);
+  font-weight: var(--font-weight-body);
+  margin-top: var(--space-1);
+}
+
+.kpi-delta.is-positive {
+  background: var(--color-success_light);
+  color: var(--color-success);
+}
+
+.kpi-delta.is-negative {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.kpi-delta.is-neutral {
+  background: var(--color-border);
+  color: var(--color-text);
+}
