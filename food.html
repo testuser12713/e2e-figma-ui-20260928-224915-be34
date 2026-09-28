@@ -27,7 +27,19 @@
     </aside>
 
     <div class="main">
-      <main class="content"></main>
+      <main class="content">
+        <section class="food-panel" aria-label="Gerichteliste">
+          <div class="food-toolbar">
+            <h2 class="food-section-title">Gerichte</h2>
+            <button type="button" class="btn btn-primary" id="add-food-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+              Neues Gericht
+            </button>
+          </div>
+          <ul class="food-list" id="food-list"></ul>
+          <p class="food-empty" id="food-empty" hidden>Noch keine Gerichte angelegt.</p>
+        </section>
+      </main>
     </div>
 
     <nav class="bottom-nav" aria-label="Navigation">
@@ -44,6 +56,35 @@
         Time Management
       </a>
     </nav>
+
+    <div class="modal-overlay" id="food-modal" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="food-modal-title">
+        <h2 class="modal-title" id="food-modal-title">Neues Gericht</h2>
+        <form id="food-form" novalidate>
+          <input type="hidden" id="food-id">
+          <div class="field">
+            <label class="field-label" for="food-name">Name</label>
+            <input class="input" id="food-name" type="text" required autocomplete="off">
+          </div>
+          <div class="field">
+            <label class="field-label" for="food-price">Preis (€)</label>
+            <input class="input" id="food-price" type="number" step="0.10" min="0" required inputmode="decimal">
+          </div>
+          <div class="field">
+            <label class="field-label" for="food-category">Kategorie</label>
+            <input class="input" id="food-category" type="text" required autocomplete="off">
+          </div>
+          <div class="field">
+            <label class="field-label" for="food-description">Beschreibung</label>
+            <textarea class="input" id="food-description" rows="3"></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-ghost" id="cancel-food-btn">Abbrechen</button>
+            <button type="submit" class="btn btn-primary" id="save-food-btn">Speichern</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
   </div>
 

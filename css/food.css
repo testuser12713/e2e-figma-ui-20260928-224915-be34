@@ -1,2 +1,289 @@
 /* food.css — seitenbezogene Styles der Food-Management-Seite.
-   Liste, Karten und Modal werden von Ticket #4 ergänzt. */
+   Verwendet ausschließlich die Design-Tokens aus css/base.css (DESIGN.md). */
+
+/* ---------- Panel / Werkzeugleiste ---------- */
+.food-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.food-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.food-section-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-heading);
+  line-height: 17px;
+  padding: 12px 24px;
+  min-height: 44px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-text);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background: var(--color-ink);
+}
+
+.btn-primary:active {
+  background: var(--color-muted);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-ghost:hover {
+  background: rgba(35, 35, 60, 0.05);
+}
+
+.btn svg {
+  flex-shrink: 0;
+}
+
+/* ---------- Liste ---------- */
+.food-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.food-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  min-height: 56px;
+}
+
+.food-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0);
+  flex: 1;
+  min-width: 0;
+}
+
+.food-item-name {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+}
+
+.food-item-desc {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-body);
+  color: var(--color-muted);
+}
+
+.food-item-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-0);
+  flex-shrink: 0;
+}
+
+.food-item-price {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+}
+
+.food-item-actions {
+  display: flex;
+  gap: var(--space-0);
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.icon-btn:hover {
+  background: rgba(35, 35, 60, 0.05);
+}
+
+.icon-btn-danger {
+  color: var(--color-danger);
+}
+
+.icon-btn-danger:hover {
+  background: rgba(237, 43, 43, 0.08);
+}
+
+/* ---------- Badge ---------- */
+.badge {
+  display: inline-block;
+  border-radius: var(--radius-pill);
+  padding: 4px 8px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-11);
+  font-weight: var(--font-weight-body);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.badge-neutral {
+  background: var(--color-muted_light);
+  color: var(--color-text);
+}
+
+/* ---------- Leerer Zustand ---------- */
+.food-empty {
+  font-size: var(--font-size-14);
+  color: var(--color-muted);
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(35, 35, 60, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+  z-index: 100;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0);
+}
+
+.field-label {
+  font-family: var(--font-family-label);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--label-tracking);
+  color: var(--color-muted);
+}
+
+.input {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  min-height: 44px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-body);
+  color: var(--color-text);
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--color-muted_light);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-text);
+  border-width: 2px;
+  padding: 11px 15px;
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 44px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .food-item {
+    gap: var(--space-3);
+  }
+}
