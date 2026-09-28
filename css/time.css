@@ -1,2 +1,234 @@
-/* time.css — seitenbezogene Styles der Time-Management-Seite.
-   Zeitslots und Toggles werden von Ticket #3 ergänzt. */
+/* =====================================================================
+   time.css — Seitenbezogene Styles der Time-Management-Seite.
+   Verwendet ausschließlich die Design-Tokens aus css/base.css.
+   ===================================================================== */
+
+/* ---------- Sektionen ---------- */
+.section {
+  margin-bottom: var(--space-4);
+}
+
+.section-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+  margin: 0 0 var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .section {
+    margin-bottom: var(--space-5);
+  }
+}
+
+/* ---------- KPI-Karten ---------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-3);
+  box-shadow: 0 1px 3px rgba(35, 35, 60, 0.08);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .kpi-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.kpi .kpi-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.kpi .kpi-label {
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-body);
+  color: var(--color-muted);
+}
+
+.kpi .kpi-value {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+  line-height: 1;
+  margin: var(--space-2) 0 var(--space-0);
+}
+
+/* ---------- Listen ---------- */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.list-row {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.list-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-heading);
+  color: var(--color-text);
+}
+
+.list-subtitle {
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-body);
+  color: var(--color-muted);
+  margin-top: 2px;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  border-radius: var(--radius-pill);
+  padding: var(--space-0) var(--space-1);
+  font-family: var(--font-family);
+  font-size: var(--font-size-11);
+  font-weight: var(--font-weight-body);
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-success {
+  background: var(--color-success_light);
+  color: var(--color-success);
+}
+
+.badge-warning {
+  background: var(--color-warning_light);
+  color: var(--color-muted);
+}
+
+.badge-danger {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.badge-neutral {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+/* ---------- Toggle (Anwesenheit) ---------- */
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 150ms ease;
+  flex-shrink: 0;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(35, 35, 60, 0.25);
+  transition: transform 150ms ease;
+}
+
+.toggle[aria-checked='true'] {
+  background: var(--color-success);
+}
+
+.toggle[aria-checked='true']::after {
+  transform: translateX(20px);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* ---------- Auswählbare Zeitslots (Offene Schichten) ---------- */
+.slot {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.slot:hover {
+  background: rgba(35, 35, 60, 0.05);
+}
+
+.slot:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.slot.is-booked {
+  border-color: var(--color-success);
+  background: rgba(110, 197, 124, 0.08);
+}
+
+.slot-action {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-heading);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  background: transparent;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.slot.is-booked .slot-action {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
