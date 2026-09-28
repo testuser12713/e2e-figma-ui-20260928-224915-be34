@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — BusinessHandler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+
+    <aside class="side-nav" data-od-id="side-nav">
+      <div class="brand">Business<span class="brand-accent">Handler</span></div>
+      <a class="nav-item active" href="dashboard.html" data-od-id="nav-dashboard">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="food-management.html" data-od-id="nav-food">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        Speisen
+      </a>
+      <a class="nav-item" href="time-management.html" data-od-id="nav-time">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Zeiten
+      </a>
+    </aside>
+
+    <div class="main">
+      <main class="content" data-od-id="dashboard-main">
+
+        <header class="page-header" data-od-id="dashboard-header">
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle">Überblick über Umsatz, Bestellungen und Schichten — Montag, 28. September</p>
+        </header>
+
+        <section class="section" data-od-id="dashboard-kpis">
+          <div class="kpi-grid">
+            <article class="card kpi" data-od-id="kpi-revenue">
+              <div class="kpi-head">
+                <span class="kpi-label">Umsatz heute</span>
+                <span class="badge badge-success">+14 %</span>
+              </div>
+              <p class="kpi-value">1.840 €</p>
+            </article>
+            <article class="card kpi" data-od-id="kpi-orders">
+              <div class="kpi-head">
+                <span class="kpi-label">Bestellungen heute</span>
+                <span class="badge badge-success">+6 %</span>
+              </div>
+              <p class="kpi-value">72</p>
+            </article>
+            <article class="card kpi" data-od-id="kpi-staff">
+              <div class="kpi-head">
+                <span class="kpi-label">Mitarbeiter im Dienst</span>
+                <span class="badge badge-neutral">12–20 Uhr</span>
+              </div>
+              <p class="kpi-value">9</p>
+            </article>
+            <article class="card kpi" data-od-id="kpi-open-shifts">
+              <div class="kpi-head">
+                <span class="kpi-label">Offene Schichten</span>
+                <span class="badge badge-warning">diese Woche</span>
+              </div>
+              <p class="kpi-value">3</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" data-od-id="dashboard-orders">
+          <h2 class="section-title">Aktuelle Bestellungen</h2>
+          <div class="list">
+            <div class="list-row" data-od-id="order-1042">
+              <div class="list-info">
+                <p class="list-title">Bestellung #1042</p>
+                <p class="list-subtitle">Tisch 7 · 3 Gerichte · vor 4 min</p>
+              </div>
+              <span class="badge badge-warning">In Zubereitung</span>
+            </div>
+            <div class="list-row" data-od-id="order-1041">
+              <div class="list-info">
+                <p class="list-title">Bestellung #1041</p>
+                <p class="list-subtitle">Tisch 3 · 2 Gerichte · vor 12 min</p>
+              </div>
+              <span class="badge badge-success">Bereit</span>
+            </div>
+            <div class="list-row" data-od-id="order-1040">
+              <div class="list-info">
+                <p class="list-title">Bestellung #1040</p>
+                <p class="list-subtitle">Lieferung · 1 Gericht · vor 21 min</p>
+              </div>
+              <span class="badge badge-success">Serviert</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" data-od-id="dashboard-shift">
+          <h2 class="section-title">Heute im Dienst</h2>
+          <div class="list">
+            <div class="list-row" data-od-id="staff-anna">
+              <div class="list-info">
+                <p class="list-title">Anna Weber</p>
+                <p class="list-subtitle">Service · 10:00 – 18:00</p>
+              </div>
+              <span class="badge badge-success">Im Dienst</span>
+            </div>
+            <div class="list-row" data-od-id="staff-lukas">
+              <div class="list-info">
+                <p class="list-title">Lukas Meyer</p>
+                <p class="list-subtitle">Küche · 11:00 – 19:00</p>
+              </div>
+              <span class="badge badge-success">Im Dienst</span>
+            </div>
+            <div class="list-row" data-od-id="staff-sofia">
+              <div class="list-info">
+                <p class="list-title">Sofia Rossi</p>
+                <p class="list-subtitle">Service · 09:00 – 15:00</p>
+              </div>
+              <span class="badge badge-warning">Pause</span>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <nav class="bottom-nav" data-od-id="bottom-nav">
+      <a class="nav-item active" href="dashboard.html" data-od-id="mnav-dashboard">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="food-management.html" data-od-id="mnav-food">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        Speisen
+      </a>
+      <a class="nav-item" href="time-management.html" data-od-id="mnav-time">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Zeiten
+      </a>
+    </nav>
+
+  </div>
+</body>
+</html>
