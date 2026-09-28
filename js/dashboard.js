@@ -1,3 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // dashboard.js — Inhalt (Kernkennzahlen, Karten) wird von Ticket #1 gerendert.
+  var main = document.querySelector('main');
+  if (!main) return;
+
+  var header = document.createElement('header');
+  header.className = 'page-header';
+
+  var title = document.createElement('h1');
+  title.className = 'page-title';
+  title.textContent = 'Dashboard';
+
+  var subtitle = document.createElement('p');
+  subtitle.className = 'page-subtitle';
+  subtitle.textContent = 'Überblick über Umsatz, Bestellungen und Schichten';
+
+  header.appendChild(title);
+  header.appendChild(subtitle);
+  main.appendChild(header);
 });
